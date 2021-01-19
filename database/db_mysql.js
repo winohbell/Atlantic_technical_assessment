@@ -25,7 +25,6 @@ module.exports.connection = mysql.createConnection({
 
   module.exports.connection.connect((err) => {
     if(err) {
-        debugger;
       throw err};
       module.exports.connection.query(createArticleTable, (err, results, fields) => {
       if(err) throw err;

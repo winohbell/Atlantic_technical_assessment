@@ -15,9 +15,9 @@ app.listen(port, () => {
 app.post('/api/articleUpload', (req, res) => {
     let data =  req.body.article;
 
+    //MySQL queries
     let getIdInfo = `SELECT * FROM articles WHERE id="${data.id}";`;
     let getUrlInfo = `SELECT * FROM articles WHERE canonical_url="${data.canonical_url}"`
-
     let inputArticle = `
     INSERT INTO articles (id, slug, title, dek, published_date, canonical_url, word_count, tags, embeds, lead_art, authors) 
     VALUES ("${data.id}", "${data.slug}", "${data.title}", "${data.dek}", "${data.published_date}", "${data.canonical_url}", ${data.word_count}, "${data.tags}", ${data.embeds}, '${JSON.stringify(data.lead_art)}', '${JSON.stringify(data.authors)}');
@@ -37,7 +37,7 @@ app.post('/api/articleUpload', (req, res) => {
     lead_art = '${JSON.stringify(data.lead_art)}', 
     authors = '${JSON.stringify(data.authors)}';
     `
-
+    //id and url status
     let idRepeat = false;
     let urlRepeat = false;
 
