@@ -1,4 +1,5 @@
 const mysql = require('mysql');
+const createArticleTable = require('./db_schema.js');
 
 module.exports.connection = mysql.createConnection({
     host: 'localhost',
@@ -9,7 +10,9 @@ module.exports.connection = mysql.createConnection({
 
 
   module.exports.connection.connect((err) => {
-      debugger;
     if(err) {
       throw err};
+      module.exports.connection.query(createArticleTable, (err, results, fields) => {
+      if(err) throw err;
+    })
   });
