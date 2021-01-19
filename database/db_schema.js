@@ -1,4 +1,4 @@
-module.exports.createArticleTable = `CREATE TABLE IF NOT EXISTS articles(
+createArticleTable = `CREATE TABLE IF NOT EXISTS articles(
     id VARCHAR(40) NOT NULL UNIQUE,
     slug VARCHAR(100) NOT NULL,
     title VARCHAR(100) NOT NULL,
@@ -12,7 +12,7 @@ module.exports.createArticleTable = `CREATE TABLE IF NOT EXISTS articles(
     authors VARCHAR(100) NOT NULL,
 
     PRIMARY KEY(id)
-    )`
+    );`
 
 
 //improved schema design - 3 tables
